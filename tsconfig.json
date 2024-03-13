@@ -17,8 +17,12 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "baseUrl": ".",
-    "paths": {
-    }
+   "paths": {
+  "*": [
+    "node_modules/@types/*",
+    "src/types/*"
+  ]
+}
   },
   "exclude": [
     "node_modules",
