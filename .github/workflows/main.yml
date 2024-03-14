@@ -9,16 +9,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      PYTHON: /usr/bin/python2  # Specify Python 2.x path
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3  # Update to use latest version
 
-      - name: Setup Node.js and Python 2.7.10
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'  # Set Node.js version to 16
-        env:
-          PYTHON: /usr/bin/python2  # Specify Python 2.x path
 
       - name: Install dependencies
         run: |
