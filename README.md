@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Stockmarket Simulation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/stockmarkat/stockmarket-simulation/issues)
+[![Build Status](https://travis-ci.org/stockmarkat/stockmarket-simulation.svg?branch=master)](https://travis-ci.org/stockmarkat/stockmarket-simulation)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1b146f1983bf715406e3/maintainability)](https://codeclimate.com/github/stockmarkat/stockmarket-simulation/maintainability)
 
-## Available Scripts
+This is a Stockmarket Simulation.
 
-In the project directory, you can run:
+At the start of the simulation the user has a capital of $ 10 000 that he can invest into various stocks. Ultimately, the user's goal should be to trade the stock as intelligently as possible in order to own as much money as they can. In spite of this goal, the user should pay attention to what he or she is effecting with his or her investment, especially with morally questionable companies. 
 
-### `npm start`
+- The price of all stocks change in real time and the the category of a stock determines how volatile its price is. 
+- There are various quests that offer an incentive to buy certain stocks or stock categories.
+- The simulation can be terminated at any time and then restarted with the same status.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Where can I try it out?
+Click [Here](https://stockmarket.netlify.com/)!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+### Depot page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![depot overview](https://user-images.githubusercontent.com/16801528/47589807-938c3400-d96a-11e8-8619-1023d8b3bb9c.jpg)
 
-### `npm run build`
+### Market page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![market overview](https://user-images.githubusercontent.com/16801528/47589730-45773080-d96a-11e8-8f13-04a9f0d930a6.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Quest page 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![quest overview](https://user-images.githubusercontent.com/16801528/47589834-a6066d80-d96a-11e8-80f6-50713ea95fb0.jpg)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Run locally
+It's easy to run a local instance of this simulation - just clone the repository, run `yarn install` ([installation instructions for yarn](https://yarnpkg.com/en/docs/install)) and use:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `yarn test` for tests
+- `yarn start` to run
+- `yarn storybook` to test the components with [Storybook](https://github.com/storybooks/storybook)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contribute
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Any type of feedback, pull request or issue is welcome. Follow the "Run locally" section of this documentation to learn how to debug the project.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://tldrlegal.com/license/mit-license)
