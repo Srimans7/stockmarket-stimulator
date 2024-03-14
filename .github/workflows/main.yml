@@ -13,20 +13,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3  # Update to use latest version
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3  # Update to use latest version
+      - name: Setup Node.js and Python 2.7.10
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Update to Node.js 20 or later
+          node-version: '16'  # Set Node.js version to 16
+        env:
+          PYTHON: /usr/bin/python2  # Specify Python 2.x path
 
       - name: Install dependencies
         run: |
-          yarn install  
+          yarn install  # Install dependencies in the root directory using yarn
 
       - name: Build and test
         run: |
-          yarn build  
-          yarn test  
+          yarn build  # Build the project using yarn
+          # Assuming you have Jest configured for tests
+          yarn test  # Run tests using yarn
 
       - name: Start server
         run: |
+          # Start your server, you may need to adjust this command based on your setup
+          # For MERN applications, usually, the server starts via 'npm start' or 'yarn start'
           yarn start  # Start the server using yarn
