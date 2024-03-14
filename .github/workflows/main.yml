@@ -9,30 +9,31 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    env:
-      PYTHON: /usr/bin/python2  # Specify Python 2.x path
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3  # Update to use latest version
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3  # Update to use latest version
         with:
-          node-version: '16'  # Set Node.js version to 16
+          node-version: '20'  # Update to Node.js 20 or later
 
       - name: Install dependencies
         run: |
-          yarn install  # Install dependencies in the root directory using yarn
+          cd frontend  # Assuming your React code is in a directory named "frontend"
+          npm install
+          cd ../backend  # Assuming your Node.js code is in a directory named "backend"
+          npm install
 
       - name: Build and test
         run: |
-          yarn build  # Build the project using yarn
-          # Assuming you have Jest configured for tests
-          yarn test  # Run tests using yarn
+          cd frontend
+          npm run build
+          npm test
+          cd ../backend
+          npm test
 
       - name: Start server
         run: |
-          # Start your server, you may need to adjust this command based on your setup
-          # For MERN applications, usually, the server starts via 'npm start' or 'yarn start'
-          yarn start  # Start the server using yarn
+          cd backend
+          npm start
