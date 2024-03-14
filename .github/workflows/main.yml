@@ -11,29 +11,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Update to use latest version
+        uses: actions/checkout@v3  # Update to use latest version
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4  # Update to use latest version
+        uses: actions/setup-node@v3  # Update to use latest version
         with:
           node-version: '20'  # Update to Node.js 20 or later
 
       - name: Install dependencies
         run: |
-          cd frontend  # Assuming your React code is in a directory named "frontend"
-          npm install
-          cd ../backend  # Assuming your Node.js code is in a directory named "backend"
-          npm install
+          yarn install  
 
       - name: Build and test
         run: |
-          cd frontend
-          npm run build
-          npm test
-          cd ../backend
-          npm test
+          yarn build  
+          yarn test  
 
       - name: Start server
         run: |
-          cd backend
-          npm start
+          yarn start  # Start the server using yarn
