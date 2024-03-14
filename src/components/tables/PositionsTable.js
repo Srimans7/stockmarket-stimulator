@@ -34,7 +34,6 @@ export default function PositionsTable() {
       const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/position/all?userId=${userId}`);
       if (response.status === 200) {
         let allPositions = [];
-        console.log('Positions: ', response.data.positions[0]?.buyOrderId?.scripId?.lastPrice ?? 'N/A');
         response.data?.positions?.map((position) => {
           allPositions.push(createData(
             position._id,
