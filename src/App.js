@@ -1,72 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import styles from "./App.module.css";
-import { Login, Register, NotFound, PageTemplate } from "./components";
-import UserContext from "./context/UserContext";
-import Axios from "axios";
-import config from "./config/Config";
+import React from "react";
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import Home from "./pages/home/Home";
+import Header from "./components/header/Header";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Orders from "./pages/orders/Orders";
+import Positions from "./pages/positions/Positions";
+import Account from "./pages/account/Account";
+import Signup from "./pages/authentication/signup/Signup";
+import Signin from "./pages/authentication/signin/Signin";
+import Tools from "./pages/tools/Tools";
+import TradingChart from "./pages/tradingChart/TradingChart";
 
 function App() {
-  const [userData, setUserData] = useState({
-    token: undefined,
-    user: undefined,
-  });
-
-  useEffect(() => {
-    const checkLoggedIn = async () => {
-      let token = localStorage.getItem("auth-token");
-      if (token == null) {
-        localStorage.setItem("auth-token", "");
-        token = "";
-        setUserData({ token: undefined, user: undefined });
-        return;
-      }
-
-      const headers = {
-        "x-auth-token": token,
-      };
-
-      const tokenIsValid = await Axios.post(
-        config.base_url + "/api/auth/validate",
-        null,
-        {
-          headers,
-        }
-      );
-
-      if (tokenIsValid.data) {
-        const userRes = await Axios.get(config.base_url + "/api/auth/user", {
-          headers,
-        });
-        setUserData({
-          token,
-          user: userRes.data,
-        });
-      } else {
-        setUserData({ token: undefined, user: undefined });
-      }
-    };
-
-    checkLoggedIn();
-  }, []);
-
   return (
-    <Router>
-      <UserContext.Provider value={{ userData, setUserData }}>
-        <div className={styles.container}>
-          <Routes>
-            {userData.user ? (
-              <Route path="/" element={<PageTemplate />} />
-            ) : (
-              <Route path="/" element={<Register />} />
-            )}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route element={<NotFound />} />
-          </Routes>
-        </div>
-      </UserContext.Provider>
-    </Router>
+    <div className="App">
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} >
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/positions" element={<Positions />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/chart" element={<TradingChart />} />
+          </Route>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
