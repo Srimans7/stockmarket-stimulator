@@ -1,0 +1,39 @@
+name: Deploy MERN App
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: |
+          cd frontend  # Assuming your React code is in a directory named "frontend"
+          npm install
+          cd ../backend  # Assuming your Node.js code is in a directory named "backend"
+          npm install
+
+      - name: Build and test
+        run: |
+          cd frontend
+          npm run build
+          npm test
+          cd ../backend
+          npm test
+
+      - name: Start server
+        run: |
+          cd backend
+          npm start
